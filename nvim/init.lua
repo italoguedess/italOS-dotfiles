@@ -22,19 +22,18 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  use 'sainnhe/gruvbox-material' -- gruvbox-material theme for vim
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- use 'mhinz/vim-startify' -- fancy startup screen for vim
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { 'morhetz/gruvbox' } -- Gruvbox theme for vim
   use {
     	'goolord/alpha-nvim',
     	config = function ()
         	require'alpha'.setup(require'alpha.themes.dashboard'.config)
     	end
   }
-  use { 'dracula/vim' } -- Dracula theme for vim
   -- use 'mjlbach/onedark' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   -- Add indentation guides even on blank lines
@@ -398,76 +397,30 @@ set splitbelow
 :unlet Leader
 ]]
 
--- startify config
-vim.cmd [[
-" :let g:startify_custom_header = startify#center ([
-" \ '                            _____                                                                             ',
-" \ '  _____    _____       _____\    \       ____    _______    ______   ____________         ___________         ',
-" \ ' |\    \   \    \     /    / |    |  ____\_  \__ \      |  |      | /            \       /           \        ',
-" \ '  \\    \   |    |   /    /  /___/| /     /     \ |     /  /     /||\___/\  \\___/|     /    _   _    \       ',
-" \ '   \\    \  |    |  |    |__ |___|//     /\      ||\    \  \    |/  \|____\  \___|/    /    //   \\    \      ',
-" \ '    \|    \ |    |  |       \     |     |  |     |\ \    \ |    |         |  |        /    //     \\    \     ',
-" \ '     |     \|    |  |     __/ __  |     |  |     | \|     \|    |    __  /   / __    /     \\_____//     \    ',
-" \ '    /     /\      \ |\    \  /  \ |     | /     /|  |\         /|   /  \/   /_/  |  /       \ ___ /       \   ',
-" \ '   /_____/ /______/|| \____\/    ||\     \_____/ |  | \_______/ |  |____________/| /________/|   |\________\  ',
-" \ '  |      | |     | || |    |____/|| \_____\   | /    \ |     | /   |           | /|        | |   | |        | ',
-" \ '  |______|/|_____|/  \|____|   | | \ |    |___|/      \|_____|/    |___________|/ |________|/     \|________| ',
-" \ '                           |___|/   \|____|                                                                   ',
-" \ ])
-
-":let g:banner = [
-"\ '      █████ █     ██                           █████ █      ██                         ',
-"\ '   ██████  ██    ████ █                     ██████  █    █████    █                    ',
-"\ '  ██   █  █ ██    ████                     ██   █  █       █████ ███                   ',
-"\ ' █    █  █  ██    █ █                     █    █  ██       █ ██   █                    ',
-"\ '     █  █    ██   █                ████       █  ███      █   █                        ',
-"\ '    ██ ██    ██   █       ███     █ ███  █   ██   ██      █     ███    ███ ████ ████   ',
-"\ '    ██ ██     ██  █      █ ███   █   ████    ██   ██      █      ███    ███ ████ ███  █',
-"\ '    ██ ██     ██  █     █   ███ ██    ██     ██   ██     █        ██     ██  ████ ████ ',
-"\ '    ██ ██      ██ █    ██    █████    ██     ██   ██     █        ██     ██   ██   ██  ',
-"\ '    ██ ██      ██ █    ████████ ██    ██     ██   ██     █        ██     ██   ██   ██  ',
-"\ '    █  ██       ███    ███████  ██    ██      ██  ██    █         ██     ██   ██   ██  ',
-"\ '       █        ███    ██       ██    ██       ██ █     █         ██     ██   ██   ██  ',
-"\ '   ████          ██    ████    █ ██████         ███     █         ██     ██   ██   ██  ',
-"\ '  █  █████              ███████   ████           ███████          ███ █  ███  ███  ███ ',
-"\ ' █     ██                █████                     ███             ███    ███  ███  ███',
-"\ ' █                                                                                     ',
-"\ '  █                                                                                    ',
-"\ '   ██                                                                                  ',
-"\ ]
-                                                                                       
-
-" let g:startify_lists = []
-" let g:startify_padding_left = 50
-" let g:startify_bookmarks = []
-" let g:startify_custom_indices = []
-                                     
-]]
-
-
 
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
 -- Set header
+-- Set header
 dashboard.section.header.val = {
-	"",
-	"",
-	"",
-	"",
-	" ███▄    █  ▓█████ ▒█████   ██▒   █▓  ██▓ ███▄ ▄███▓",
-	" ██ ▀█   █  ▓█   ▀▒██▒  ██▒▓██░   █▒▒▓██▒▓██▒▀█▀ ██▒",
-	"▓██  ▀█ ██▒ ▒███  ▒██░  ██▒ ▓██  █▒░▒▒██▒▓██    ▓██░",
-	"▓██▒  ▐▌██▒ ▒▓█  ▄▒██   ██░  ▒██ █░░░░██░▒██    ▒██ ",
-	"▒██░   ▓██░▒░▒████░ ████▓▒░   ▒▀█░  ░░██░▒██▒   ░██▒",
-	"░ ▒░   ▒ ▒ ░░░ ▒░ ░ ▒░▒░▒░    ░ ▐░   ░▓  ░ ▒░   ░  ░",
-	"░ ░░   ░ ▒░░ ░ ░    ░ ▒ ▒░    ░ ░░  ░ ▒ ░░  ░      ░",
-   	"░   ░ ░     ░  ░ ░ ░ ▒       ░░  ░ ▒ ░░      ░   ",
-        "░ ░   ░      ░ ░        ░    ░         ░   ",
-	"",
-	"",
-	"",
-
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "                                                     ",
+    "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+    "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+    "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+    "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+    "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+    "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+    "                                                     ",
+    "",
+    "",
+    "",
 }
 
 dashboard.section.buttons.val = {
@@ -478,3 +431,18 @@ dashboard.section.buttons.val = {
     dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
 }
 
+vim.cmd [[
+    if has('termguicolors')
+      set termguicolors
+    endif
+    set background=dark
+
+    let g:gruvbox_material_background = 'hard'
+    let g:gruvbox_material_enable_italic = 1
+    let g:gruvbox_material_disable_italic_comment = 1
+    let g:gruvbox_material_ui_contrast = 'high'
+    let g:gruvbox_material_palette = 'material'
+
+    colorscheme gruvbox-material
+
+]]

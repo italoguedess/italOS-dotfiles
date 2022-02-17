@@ -23,6 +23,7 @@ require('packer').startup(function()
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'sainnhe/gruvbox-material' -- gruvbox-material theme for vim
+  use 'sainnhe/everforest' -- everforest theme for vim
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- use 'mhinz/vim-startify' -- fancy startup screen for vim
   -- UI to select things (files, grep results, open buffers...)
@@ -77,7 +78,6 @@ vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -432,17 +432,18 @@ dashboard.section.buttons.val = {
 }
 
 vim.cmd [[
+
     if has('termguicolors')
       set termguicolors
     endif
     set background=dark
 
-    let g:gruvbox_material_background = 'hard'
-    let g:gruvbox_material_enable_italic = 1
-    let g:gruvbox_material_disable_italic_comment = 1
-    let g:gruvbox_material_ui_contrast = 'high'
-    let g:gruvbox_material_palette = 'material'
+    let g:everforest_background = 'hard'
+    let g:everforest_enable_italic = 1
+    " let g:everforest_ui_contrast = 'high'
+    let g:everforest_diagnostic_line_highlight = 1
 
-    colorscheme gruvbox-material
+    colorscheme everforest
+    " let g:lightline.colorscheme = 'everforest'
 
 ]]

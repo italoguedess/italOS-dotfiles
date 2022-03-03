@@ -1,11 +1,11 @@
 # Parts of this config were created by Derek Taylor, AKA DistroTube. The rest was created by Matt Weber aka The Linux Cast
 
 font:
-  size: 10
+  size: 12
   offset:
     y: 1
   normal:
-    family: "Monaco"
+    family: "Jet Brains Mono"
 
 window:
   padding:

@@ -337,3 +337,28 @@ ramp-signal-4 = " "
 ramp-signal-foreground = ${color.background}
 ramp-signal-background = ${color.magenta}
 ramp-signal-font = 2
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/xwindow]
+type=internal/xwindow
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background = ${color.altblack}
+format-foreground = ${color.foreground}
+format-padding = 1
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 25
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = 
+label-empty-foreground = ${color.red}
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+

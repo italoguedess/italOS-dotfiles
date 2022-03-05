@@ -5,7 +5,7 @@ font:
   offset:
     y: 1
   normal:
-    family: "Jet Brains Mono"
+    family: "JetBrains Mono"
 
 window:
   padding:

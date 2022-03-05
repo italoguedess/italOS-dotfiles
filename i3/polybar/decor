@@ -17,7 +17,7 @@ content = ""
 
 content-font = 3
 content-background = ${color.background}
-content-foreground = ${color.altblack}
+content-foreground = ${color.altwhite}
 content-padding = 1
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -180,5 +180,19 @@ content = "%{T3}%{T-}"
 content-font = 3
 content-background = ${color.magenta}
 content-foreground = ${color.red}
+
+[module/BPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.altblack}
+content-foreground = ${color.blue}
+
+[module/DVD]
+type = custom/text
+content = "%{T1}%{T-}"
+content-font = 3
+content-background = ${color.altblack}
+content-foreground = ${color.foreground}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_

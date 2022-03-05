@@ -55,7 +55,7 @@ font-3 = "Iosevka Nerd Font:size=18;4"
 
 # Default
 modules-left = spacing BLD launcher BRD dot GLD cpu YPL memory CPL filesystem CRD 
-modules-center = LD i3 RD
+modules-center = LD xwindow BPR i3 RD 
 modules-right = MLD network MPL volume ARRD dot BLD time BRD spacing
 
 spacing = 0

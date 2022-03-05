@@ -168,8 +168,8 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 # keybindings for different actions: #
 ######################################
 
-# start emacs
-bindsym $mod+e exec emacs
+# start nvim
+bindsym $mod+e exec kitty -e nvim
 
 # start a terminal
 bindsym $mod+Return exec kitty

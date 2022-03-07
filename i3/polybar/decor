@@ -188,11 +188,19 @@ content-font = 3
 content-background = ${color.altblack}
 content-foreground = ${color.blue}
 
-[module/DVD]
+[module/OPL]
 type = custom/text
-content = "%{T1}%{T-}"
+content = "%{T3}%{T-}"
 content-font = 3
-content-background = ${color.altblack}
-content-foreground = ${color.foreground}
+content-background = ${color.orange}
+content-foreground = ${color.magenta}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/OLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.orange}
+

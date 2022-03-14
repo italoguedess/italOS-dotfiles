@@ -1,0 +1,241 @@
+# i3blocks config file changed for EndeavourOS-i3 setup
+
+# source is available here:
+# https://raw.githubusercontent.com/endeavouros-team/endeavouros-i3wm-setup/main/.config/i3/i3blocks.conf
+# Maintainer: joekamprad [joekamprad@endeavouros.com]
+# Former Visual Designer: Florent Valetti [@FLVAL EndeavourOS]
+# created for i3wm setup on EndeavourOS
+# https://endeavouros.com
+
+# cheatsheet for icon fonts used on the block-bar:
+# https://fontawesome.com/v4.7/cheatsheet/
+
+# --> to update this run the following command:
+# wget --backups=1 https://raw.githubusercontent.com/endeavouros-team/endeavouros-i3wm-setup/main/.config/i3/i3blocks.conf -P ~/.config/i3/
+
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+
+
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+min_width=0
+separator=false
+markup=pango
+#font pango:Iosevka Nerd Font 
+separator_block_width=0
+#border_right=50
+#border_bottom=2
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+
+[powerline-circle-1]
+full_text=
+color=#928374
+
+[disk-label]
+full_text=
+align=center
+min_width=25
+background=#928374
+color=#282828
+
+[disk]
+align=center
+min_width=50
+background=#928374
+color=#282828
+command=~/.config/i3blocks/scripts/disk
+interval=30
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+
+[memory-label]
+align=center
+min_width=25
+background=#928374
+color=#282828
+full_text=
+
+[memory]
+align=center
+min_width=50
+background=#928374
+color=#282828
+command=~/.config/i3blocks/scripts/memory
+interval=2
+
+[cpu_usage-label]
+align=center
+min_width=20
+background=#928374
+color=#282828
+full_text=
+
+[cpu_usage]
+align=center
+min_width=50
+background=#928374
+color=#282828
+command=~/.config/i3blocks/scripts/cpu_usage
+#min_width=CPU: 100.00%
+interval=2
+
+[powerline-circle-2]
+full_text=
+background=#928374
+color=#7c6f64
+
+[CPU-temperature-label]
+align=center
+min_width=25
+background=#7c6f64
+color=#ebdbb2
+full_text=
+
+[CPU-temperature]
+align=center
+min_width=50
+background=#7c6f64
+color=#ebdbb2
+command=~/.config/i3blocks/scripts/temperature
+interval=30
+#T_WARN=70
+#T_CRIT=90
+#SENSOR_CHIP=""
+# where SENSOR_CHIP can be find with sensors output
+# can be used also for GPU temperature or other temperature sensors lm-sensors detects.
+
+# showing name of connected network (enable for wifi use)
+[net-icon]
+align=center
+min_width=50
+background=#7c6f64
+color=#ebdbb2
+full_text=
+
+[net]
+align=center
+min_width=50
+background=#7c6f64
+color=#ebdbb2
+command=echo "$(LANG=C nmcli d | grep connected  | awk '{print $4}')"
+interval=30
+
+#[bandwidth]
+#command=~/.config/i3/scripts/bandwidth2
+#interval=persist
+
+[battery-icon]
+align=center
+min_width=25
+background=#7c6f64
+color=#ebdbb2
+full_text=
+
+
+# Battery indicator
+[battery]
+align=center
+min_width=35
+background=#7c6f64
+color=#ebdbb2
+command=~/.config/i3blocks/scripts/battery2
+# for alternative battery script  change to battery1
+# change this to battery-pinebook-pro if you are running on pinebook-pro
+interval=30
+
+#[pavucontrol]
+#full_text=    
+#color=#fbf1c7
+#background=#689d6a
+#command=pavucontrol
+
+[powerline-circle-3]
+full_text=
+background=#7c6f64
+color=#665c54
+
+[volume]
+align=center
+min_width=210
+background=#665c54
+color=#ebdbb2
+command=~/.config/i3blocks/scripts/volume
+click=pavucontrol
+instance=Master
+interval=1
+
+# display keyboard layout name
+# for keyboard layouts switcher
+# see i3 config file
+#[keyboard-layout]
+#command=~/.config/i3/scripts/keyboard-layout
+#interval=2
+
+#[keybindings]
+#full_text=
+#command=~/.config/i3/scripts/keyhint
+
+#set power-profile
+#[ppd_menu]
+#full_text=
+#command=~/.config/i3/scripts/power-profiles
+#color=#407437
+
+#Show the current power-profile
+#[ppd-status]
+#command=~/.config/i3/scripts/ppd-status
+#interval=5
+
+[time-label]
+align=center
+min_width=25
+background=#665c54
+color=#ebdbb2
+full_text=
+
+[time]
+align=center
+min_width=100
+background=#665c54
+color=#ebdbb2
+#command=date '+%a %d %b %H:%M:%S'
+command=date '+%d/%m %H:%M'
+interval=60
+
+#[shutdown_menu]
+#align=center
+#min_width=25
+#background=#665c54
+#color=#ebdbb2
+#full_text=
+#command=~/.config/i3blocks/scripts/powermenu
+
+#[simple-2]
+#color=#fbf1c7
+#color=#717171

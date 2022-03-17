@@ -179,6 +179,10 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
+    # Auto insert $term in the scratchpad workspace and show it
+    for_window [title="scratchpad"] move window to scratchpad, scratchpad show
+    exec $term --title scratchpad
+
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+backslash move scratchpad
 

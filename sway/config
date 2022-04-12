@@ -4,6 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+
+
 # General options
 gaps inner 5
 default_border pixel 2
@@ -19,7 +21,7 @@ input * {
 
 # wallpaper and font
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Pictures/gruvbox/gruvbox/nvim.jpg fill
+output * bg ~/Pictures/gruvbox/gruvbox/wolf.jpg fill
 font pango:JetBrains Mono 12
 
 ### Variables
@@ -44,9 +46,7 @@ set $browser brave
 set $editor "kitty -e nvim"
 
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi
 
 ### Key bindings
 #
@@ -82,6 +82,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
 #
 # Moving around:
 #
@@ -108,6 +109,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -148,6 +150,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
     bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
@@ -260,3 +263,9 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+
+#
+# Some window rules
+# 
+
+for_window [class="matplotlib"] floating toggle

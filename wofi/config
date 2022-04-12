@@ -1,0 +1,10 @@
+mode=drun
+width=30%
+height=30%
+prompt=search
+allow_images=true
+image_size=16
+term=kitty
+insensitive=true
+gtk_dark=true
+content_halign=fill
